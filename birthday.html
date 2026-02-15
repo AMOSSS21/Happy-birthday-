@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f8bfc9, #f48fb1);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- CONTAINER --- */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- HEADLINE --- */
+.top-text {
+    font-size: 36px;
+    color: #c2185b;
+    margin-bottom: 25px;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* --- CAKE --- */
+.cake {
+    position: relative;
+    margin: 20px 0 35px;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.layer {
+    background: #6d4c41;
+    border-radius: 8px;
+    margin: 3px auto;
+    position: relative;
+}
+
+.layer1 { width: 120px; height: 40px; }
+.layer2 { width: 100px; height: 35px; }
+.layer3 { width: 80px; height: 30px; }
+
+.icing {
+    position: absolute;
+    top: -8px;
+    width: 100%;
+    height: 15px;
+    background: white;
+    border-radius: 8px;
+}
+
+/* --- CANDLES --- */
+.candle {
+    width: 10px;
+    height: 35px;
+    background: white;
+    position: absolute;
+    border-radius: 3px;
+}
+
+.flame {
+    width: 12px;
+    height: 18px;
+    background: gold;
+    border-radius: 50%;
+    position: absolute;
+    top: -18px;
+    left: -1px;
+    animation: flicker 0.2s infinite alternate;
+    box-shadow: 0 0 15px gold, 0 0 25px rgba(255,215,0,0.5);
+}
+
+@keyframes flicker {
+    from { transform: scale(1); opacity: 0.85; }
+    to { transform: scale(1.15); opacity: 1; }
+}
+
+/* --- BALLOONS --- */
+.balloon {
+    position: absolute;
+    width: 35px;
+    height: 45px;
+    border-radius: 50%;
+    animation: balloonFloat 4s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 35px;
+    background: rgba(0,0,0,0.2);
+    left: 50%;
+    top: 45px;
+}
+
+@keyframes balloonFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* --- FLOWER PETALS --- */
+.flower {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    animation: flowerFloat 4s ease-in-out infinite;
+}
+
+.flower::before,
+.flower::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.flower::before { transform: rotate(45deg); }
+.flower::after { transform: rotate(90deg); }
+
+@keyframes flowerFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* --- MESSAGE --- */
+.message-title {
+    font-size: 20px;
+    color: #c2185b;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.message {
+    max-width: 720px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 15px 50px 15px;
+}
+
+/* --- FALLING HEARTS --- */
+.confetti {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: white;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+    z-index: 2;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+}
+
+.confetti::before { top: -6px; left: 0; }
+.confetti::after { left: -6px; top: 0; }
+
+@keyframes fall {
+    from { transform: translateY(-20px) rotate(45deg); }
+    to { transform: translateY(110vh) rotate(45deg); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 400px){
+    .cake .layer1 { width: 90px; height: 30px; }
+    .cake .layer2 { width: 75px; height: 25px; }
+    .cake .layer3 { width: 60px; height: 20px; }
+    .balloon { width: 25px; height: 35px; }
+    .flower { width: 20px; height: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="top-text">Happy Birthday My Love ❤️</div>
+
+    <!-- Balloons -->
+    <div class="balloon" style="left:20px; top:90px; background:#ffffff;"></div>
+    <div class="balloon" style="left:60px; top:140px; background:#ff6b81;"></div>
+    <div class="balloon" style="left:30px; top:200px; background:#feca57;"></div>
+
+    <div class="balloon" style="right:20px; top:90px; background:#ffffff;"></div>
+    <div class="balloon" style="right:60px; top:140px; background:#48dbfb;"></div>
+    <div class="balloon" style="right:30px; top:200px; background:#1dd1a1;"></div>
+
+    <!-- Cake -->
+    <div class="cake">
+        <div class="candle" style="top:-45px; left:30px;"><div class="flame"></div></div>
+        <div class="candle" style="top:-45px; left:55px;"><div class="flame"></div></div>
+        <div class="candle" style="top:-45px; left:80px;"><div class="flame"></div></div>
+
+        <div class="layer layer3"><div class="icing"></div></div>
+        <div class="layer layer2"><div class="icing"></div></div>
+        <div class="layer layer1"><div class="icing"></div></div>
+    </div>
+
+    <!-- Message -->
+    <div class="message-title">Happy Birthday to you ❤️</div>
+    <div class="message">
+        Honestly, I don’t even know where to start because putting into words how I feel about you never feels like enough.
+        You’ve become someone so incredibly special to me, more than you probably realize. The way you exist in my life,
+        your presence, your energy, your smile, even the smallest moments we share, they all mean so much to me.<br><br>
+        
+        You’re not just important to me. You’re someone who has quietly become a part of my days, my thoughts, my happiness.
+        Someone who can change my mood without even trying. And I genuinely mean this, I love you. Not in some loud, dramatic way,
+        but in that real, steady, sincere way where you just deeply care about someone and want the best for them always.<br><br>
+        
+        On your special day, I just want you to know how much you matter to me. How much I appreciate you. How much I care about you.
+        No matter what happens, I’ll always have a soft corner for you, always support you, always be someone who stands by you.
+        Because that’s what you deserve.<br><br>
+        
+        I hope this year brings you everything, happiness, peace, success, beautiful moments, and everything your heart wishes for.
+        And selfishly, I hope I get to keep being part of your smiles, your laughs, your world.<br><br>
+        
+        Happy Birthday once again 😌❤️<br>
+        Stay amazing. Stay you.<br>
+        And just never forget how loved you are.
+    </div>
+</div>
+
+<script>
+// Falling hearts
+function createHeart() {
+    let confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * window.innerWidth + "px";
+    confetti.style.top = "-20px";
+    confetti.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    confetti.style.opacity = Math.random();
+    document.body.appendChild(confetti);
+    setTimeout(() => { confetti.remove(); }, 6000);
+}
+setInterval(createHeart, 200);
+
+// Flowers wrapped around cake
+function createBouquetFlower() {
+    let flower = document.createElement("div");
+    flower.classList.add("flower");
+    const colors = ["#ff6b81", "#feca57", "#48dbfb", "#1dd1a1", "#ffffff", "#ff9ff3"];
+    flower.style.background = colors[Math.floor(Math.random() * colors.length)];
+    // Random position around cake
+    const cake = document.querySelector(".cake");
+    const rect = cake.getBoundingClientRect();
+    flower.style.left = (rect.left + Math.random() * rect.width - 15) + "px";
+    flower.style.top = (rect.top + Math.random() * rect.height + 20) + "px";
+    flower.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(flower);
+    setTimeout(() => { flower.remove(); }, 10000);
+}
+setInterval(createBouquetFlower, 200);
+</script>
+
+</body>
+</html>
