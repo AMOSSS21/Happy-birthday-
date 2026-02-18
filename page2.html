@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Cake 🎂</title>
+
+<style>
+html, body {
+    margin:0; padding:0; height:100%;
+    font-family:'Segoe UI',sans-serif;
+    background:#f8bfc9;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Falling Hearts */
+.falling-heart {
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:red;
+    transform:rotate(45deg);
+    animation: fall 4s linear infinite;
+}
+.falling-heart::before, .falling-heart::after {
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:red;
+    border-radius:50%;
+}
+.falling-heart::before { top:-9px; left:0; }
+.falling-heart::after { left:9px; top:0; }
+
+@keyframes fall {
+    0% { transform:translateY(-20px) rotate(45deg); opacity:1; }
+    100% { transform:translateY(100vh) rotate(45deg); opacity:0; }
+}
+
+/* Cake Styling */
+.cake { position: relative; margin: 120px auto 10px; }
+.layer { background:#6d4c41; border-radius:8px; margin:3px auto; position: relative; }
+.layer1 { width:200px; height:60px; }
+.layer2 { width:160px; height:50px; }
+.layer3 { width:120px; height:40px; }
+
+.icing { position:absolute; top:-8px; width:100%; height:15px; background:white; border-radius:8px; }
+
+.candle { width:12px; height:45px; background:white; position:absolute; border-radius:3px; }
+.flame {
+    width:14px; height:18px; background:gold;
+    border-radius:50%; position:absolute; top:-18px; left:-1px;
+    animation:flicker 0.2s infinite alternate;
+}
+@keyframes flicker { from {transform:scale(1);} to {transform:scale(1.15);} }
+
+.message { font-size:28px; color:#c2185b; font-weight:600; margin-top:10px; }
+
+/* Balloons */
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    animation: float 8s ease-in-out infinite;
+}
+.balloon::after {
+    content:'';
+    position:absolute;
+    width:2px;
+    height:30px;
+    background:black;
+    bottom:-30px;
+    left:50%;
+}
+
+/* Float Animation */
+@keyframes float {
+    0% { transform: translateY(0) }
+    50% { transform: translateY(-60px) }
+    100% { transform: translateY(0) }
+}
+
+/* Navigation Buttons */
+.nav {
+    position: fixed;
+    bottom: 20px;
+    font-size: 18px;
+    background: #c2185b;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.nav.prev { left: 20px; }
+.nav.next { right: 20px; }
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<!-- Balloons with sweet words -->
+<div class="balloon" style="left:20%; background:#ff4d6d; animation-delay:0s;">Happy</div>
+<div class="balloon" style="left:32%; background:#ff8a65; animation-delay:1s;">Birthday</div>
+
+<div class="balloon" style="left:50%; background:#4db6ac; animation-delay:0.5s;">Love You</div>
+<div class="balloon" style="left:62%; background:#ba68c8; animation-delay:1.5s;">Forever</div>
+
+<div class="balloon" style="left:75%; background:#fdd835; color:#000; animation-delay:0.7s;">Sweetheart</div>
+<div class="balloon" style="left:87%; background:#64b5f6; animation-delay:1.2s;">My Love</div>
+
+<!-- Cake -->
+<div class="cake">
+    <div class="candle" style="left:50%; top:-60px; transform:translateX(-50%);">
+        <div class="flame"></div>
+    </div>
+    <div class="layer layer3"><div class="icing"></div></div>
+    <div class="layer layer2"><div class="icing"></div></div>
+    <div class="layer layer1"><div class="icing"></div></div>
+</div>
+
+<div class="message">Happy Birthday to youuu ❤️🎉</div>
+
+<!-- Navigation -->
+<a class="nav prev" href="page1.html">Prev ❤️</a>
+<a class="nav next" href="page3.html">Next 💖</a>
+
+<script>
+// Falling Hearts
+for(let i=0;i<35;i++){
+    let heart=document.createElement("div");
+    heart.classList.add("falling-heart");
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.getElementById("hearts").appendChild(heart);
+}
+</script>
+
+</body>
+</html>
