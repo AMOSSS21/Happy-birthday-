@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Love ❤️</title>
+
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family:'Segoe UI',sans-serif;
+    background:#f8bfc9;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.message {
+    max-width:720px;
+    font-size:18px;
+    color:#c2185b;
+    line-height:1.7;
+    padding:30px;
+}
+
+/* Falling hearts */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear forwards;
+    color: #ff4d6d;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="message">
+Happy Birthday, my love ❤️<br><br>
+
+Honestly, I don’t even know where to begin because words never truly feel enough when it comes to you.  
+You are someone incredibly special to me, someone who has quietly become such an important part of my life.<br><br>
+
+Your smile, your presence, your energy — they have a way of making everything feel lighter, brighter, and more beautiful.  
+You bring a kind of happiness that’s rare, genuine, and deeply felt.<br><br>
+
+On your special day, I just want to wish you endless happiness, peace, success, and everything your heart desires.  
+May your life always be filled with love, laughter, and moments that make you truly happy.<br><br>
+
+Thank you for being you. Thank you for existing the way you do.  
+Thanks for always being there, for your kindness, and for the warmth you bring into my world.<br><br>
+
+I will always care for you, always cherish you, and always have a soft corner for you.  
+And no matter what, I will always love you with all my heart and forever ❤️<br><br>
+
+Hope you like it 😌💖
+</div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.fontSize = (Math.random() * 10 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
