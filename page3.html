@@ -12,10 +12,19 @@ html, body {
     font-family:'Segoe UI',sans-serif;
     background:#f8bfc9;
     text-align:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+    display:block;        /* allow scrolling */
+    overflow-y: auto;     /* vertical scroll if needed */
+}
+
+.message {
+    max-width:720px;
+    font-size:18px;
+    color:#c2185b;
+    line-height:1.7;
+    padding:30px;
+    margin: 0 auto;       /* center horizontally */
+}
+
 }
 
 .message {
@@ -107,3 +116,4 @@ setInterval(createHeart, 300);
 
 </body>
 </html>
+
