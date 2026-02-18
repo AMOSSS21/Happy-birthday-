@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +39,7 @@ html, body {
 }
 
 /* Cake Styling */
-.cake { position: relative; margin: 120px auto 10px; }
+.cake { position: relative; margin: 80px auto 10px; }
 .layer { background:#6d4c41; border-radius:8px; margin:3px auto; position: relative; }
 .layer1 { width:200px; height:60px; }
 .layer2 { width:160px; height:50px; }
@@ -55,53 +55,20 @@ html, body {
 }
 @keyframes flicker { from {transform:scale(1);} to {transform:scale(1.15);} }
 
-.message { font-size:28px; color:#c2185b; font-weight:600; margin-top:10px; }
+.cherry { width:15px; height:15px; background:#f44336; border-radius:50%; position:absolute; }
 
-/* Balloons */
-.balloon {
-    position: absolute;
-    width: 60px;
-    height: 80px;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    animation: float 8s ease-in-out infinite;
-}
-.balloon::after {
-    content:'';
-    position:absolute;
-    width:2px;
-    height:30px;
-    background:black;
-    bottom:-30px;
-    left:50%;
-}
+.message { font-size:22px; color:#c2185b; font-weight:600; margin-top:20px; }
 
-/* Float Animation */
-@keyframes float {
-    0% { transform: translateY(0) }
-    50% { transform: translateY(-60px) }
-    100% { transform: translateY(0) }
-}
-
-/* Navigation Buttons */
+/* Navigation Button */
 .nav {
-    position: fixed;
-    bottom: 20px;
     font-size: 18px;
     background: #c2185b;
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
+    margin: 20px 10px;
 }
-<a class="nav prev" href="index.html">Prev ❤️</a>
-<a class="nav next" href="page3.html">Next 💖</a>
-
 </style>
 </head>
 
@@ -109,34 +76,30 @@ html, body {
 
 <div id="hearts"></div>
 
-<!-- Balloons with sweet words -->
-<div class="balloon" style="left:20%; background:#ff4d6d; animation-delay:0s;">Happy</div>
-<div class="balloon" style="left:32%; background:#ff8a65; animation-delay:1s;">Birthday</div>
-
-<div class="balloon" style="left:50%; background:#4db6ac; animation-delay:0.5s;">Love You</div>
-<div class="balloon" style="left:62%; background:#ba68c8; animation-delay:1.5s;">Forever</div>
-
-<div class="balloon" style="left:75%; background:#fdd835; color:#000; animation-delay:0.7s;">Sweetheart</div>
-<div class="balloon" style="left:87%; background:#64b5f6; animation-delay:1.2s;">My Love</div>
-
-<!-- Cake -->
 <div class="cake">
     <div class="candle" style="left:50%; top:-60px; transform:translateX(-50%);">
         <div class="flame"></div>
     </div>
+
     <div class="layer layer3"><div class="icing"></div></div>
     <div class="layer layer2"><div class="icing"></div></div>
     <div class="layer layer1"><div class="icing"></div></div>
 </div>
 
-<div class="message">Happy Birthday to youuu ❤️🎉</div>
+<!-- Sweet Birthday Message -->
+<div class="message">
+Happy Birthday to you ❤️<br>
+Wishing you endless happiness, perfect health, and a life as sweet and joyful as this cake.  
+Always stay as wonderful and special as you are!
+</div>
 
 <!-- Navigation -->
-<a class="nav prev" href="page1.html">Prev ❤️</a>
-<a class="nav next" href="page3.html">Next 💖</a>
+<div>
+    <a class="nav prev" href="index.html">Prev ❤️</a>
+    <a class="nav next" href="page3.html">Next 💖</a>
+</div>
 
 <script>
-// Falling Hearts
 for(let i=0;i<35;i++){
     let heart=document.createElement("div");
     heart.classList.add("falling-heart");
@@ -147,5 +110,4 @@ for(let i=0;i<35;i++){
 </script>
 
 </body>
-</html>
-
+</html> 
