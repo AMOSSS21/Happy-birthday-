@@ -41,6 +41,19 @@ html, body {
         opacity: 0;
     }
 }
+
+/* Navigation Button */
+.nav {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 18px;
+    background: #c2185b;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+}
 </style>
 </head>
 
@@ -67,7 +80,11 @@ And no matter what, I will always love you with all my heart and forever ❤️<
 Hope you like it 😌💖
 </div>
 
+<!-- Navigation -->
+<a class="nav" href="page2.html">Prev 🎂</a>
+
 <script>
+// Falling Hearts Animation
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -78,9 +95,7 @@ function createHeart() {
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+    setTimeout(() => { heart.remove(); }, 5000);
 }
 
 setInterval(createHeart, 300);
