@@ -22,8 +22,7 @@ html, body {
     justify-content: center;
     align-items: center;
     z-index: 5;
-    width: 100%;
-    padding: 20px;
+    width: 90%;
 }
 
 /* Falling Hearts */
@@ -57,13 +56,102 @@ html, body {
 }
 
 /* Cake Styling */
-.cake { position: relative; margin-bottom: 30px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+.cake { position: relative; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
 .layer { background:#6d4c41; border-radius:8px; margin:3px auto; position: relative; }
-.layer1 { width:200px; height:60px; }
-.layer2 { width:160px; height:50px; }
-.layer3 { width:120px; height:40px; }
-.icing { position:absolute; top:-8px; width:100%; height:15px; background:white; border-radius:8px; }
-.candle { width:12px; height:45px; background:white; position:absolute; border-radius:3px; }
+.layer1 { width:180px; height:50px; }
+.layer2 { width:140px; height:40px; }
+.layer3 { width:100px; height:30px; }
+.icing { position:absolute; top:-6px; width:100%; height:12px; background:white; border-radius:8px; }
+.candle { width:10px; height:35px; background:white; position:absolute; border-radius:3px; }
 .flame {
-    width:14px; height:18px; background:gold;
-    border-radius:50%; position:absolute; top:-
+    width:12px; height:16px; background:gold;
+    border-radius:50%; position:absolute; top:-16px; left:-1px;
+    animation:flicker 0.2s infinite alternate;
+}
+@keyframes flicker { from {transform:scale(1);} to {transform:scale(1.15);} }
+
+/* Message Styling */
+.message {
+    font-size:16px; color:#c2185b; font-weight:600;
+    max-width:500px; line-height:1.5;
+}
+
+.nav {
+    position: fixed; bottom: 20px; font-size: 16px;
+    background: #c2185b; color: white; padding: 10px 15px;
+    border-radius: 8px; text-decoration: none; z-index: 20;
+}
+.nav.prev { left: 20px; }
+.nav.next { right: 20px; }
+
+/* Balloons - 4 on each side */
+.balloon-col { position: fixed; top: 10%; display: flex; flex-direction: column; gap: 40px; z-index: 1; }
+.left-col { left: 10px; }
+.right-col { right: 10px; }
+.balloon { width: 35px; height: 45px; border-radius: 50%; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+.pink { background:#ff6f91; } .white { background:#ffffff; } .red { background:#ff4d6d; } .soft { background:#ffc2d1; }
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="balloon-col left-col">
+    <div class="balloon pink"></div><div class="balloon white"></div>
+    <div class="balloon red"></div><div class="balloon soft"></div>
+</div>
+<div class="balloon-col right-col">
+    <div class="balloon red"></div><div class="balloon pink"></div>
+    <div class="balloon white"></div><div class="balloon soft"></div>
+</div>
+    
+<div class="content-wrapper">
+    <div class="cake">
+        <div class="candle" style="left:50%; top:-40px; transform:translateX(-50%);">
+            <div class="flame"></div>
+        </div>
+        <div class="layer layer3"><div class="icing"></div></div>
+        <div class="layer layer2"><div class="icing"></div></div>
+        <div class="layer layer1"><div class="icing"></div></div>
+    </div>
+
+    <div class="message">
+        Happy Birthday, my love! 🎂💖<br><br>
+        Wishing you endless happiness, perfect health, and a life as sweet and joyful as this cake.<br><br>
+        May every day bring you laughter, love, and all the little joys that make life beautiful.<br><br>
+        Always stay as wonderful, kind, and special as you are. May all your dreams come true and may your year be filled with magic.<br><br>
+        You deserve nothing but the best, today and always! Stay blessed, keep shining, and never forget how much you are loved. ✨
+    </div>
+</div>
+
+<a class="nav prev" href="index.html">Prev ❤️</a>
+<a class="nav next" href="page3.html">Next 💖</a>
+
+<script>
+for(let i=0;i<35;i++){
+    let heart=document.createElement("div");
+    heart.classList.add("falling-heart");
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.getElementById("hearts").appendChild(heart);
+}
+
+function createButterfly() {
+    const b = document.createElement("div");
+    b.innerHTML = "🦋";
+    b.classList.add("butterfly");
+    b.style.fontSize = (Math.random() * 20 + 30) + "px"; 
+    b.style.left = Math.random() * 90 + "vw";
+    b.style.top = Math.random() * 90 + "vh";
+    document.body.appendChild(b);
+    setTimeout(() => { b.remove(); }, 4000);
+}
+for(let i = 0; i < 8; i++) { setTimeout(createButterfly, i * 500); }
+setInterval(createButterfly, 3000);
+</script>
+
+</body>
+</html>
