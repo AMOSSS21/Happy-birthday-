@@ -98,10 +98,22 @@ function createHeart() {
     setTimeout(() => { heart.remove(); }, 5000);
 }
 setInterval(createHeart, 300);
+    // Added Butterflies
+function createButterfly() {
+    const b = document.createElement("div");
+    b.innerHTML = "🦋";
+    b.classList.add("butterfly");
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.animationDuration = (Math.random() * 3 + 5) + "s";
+    document.body.appendChild(b);
+    setTimeout(() => { b.remove(); }, 6000);
+}
+setInterval(createButterfly, 1000);
 </script>
 
 </body>
 </html>
+
 
 
 
